@@ -128,7 +128,7 @@ function Experience() {
       <label htmlFor="coPosition">Position:</label>
       <input type="text" name="coPosition" />
       <label htmlFor="jobdescription">Responsibilities:</label>
-      <input type="text" className="extended-box" name="jobdescription" />
+      <textarea name="jobdescription" id="jobdescription"></textarea>
       <label htmlFor="startCo">Start Date:</label>
       <input type="date" name='startCo' />
       <label htmlFor="endCo">End Date:</label>

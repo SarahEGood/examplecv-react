@@ -1,12 +1,67 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Field from './Field.jsx';
 
 function App() {
+  const [listOfFields, setFields] = useState([
+    {
+      val: '',
+      label: 'First Name:',
+      id: Math.floor(Math.random() * 1000000)
+    },
+    {
+      val: '',
+      label: 'Last Name:',
+      id: Math.floor(Math.random() * 1000000)
+    },
+    {
+      val: '',
+      label: 'Email:',
+      id: Math.floor(Math.random() * 1000000)
+    },
+    {
+      val: '',
+      label: 'Phone:',
+      id: Math.floor(Math.random() * 1000000)
+    },
+    {
+      val: '',
+      label: 'Street Name and Number:',
+      id: Math.floor(Math.random() * 1000000)
+    },
+    {
+      val: '',
+      label: 'State:',
+      id: Math.floor(Math.random() * 1000000)
+    },
+    {
+      val: '',
+      label: 'ZipCode:',
+      id: Math.floor(Math.random() * 1000000)
+    }
+  ])
+
+  const handleChange = (e, index) => {
+    const value = e.target.value;
+    setFields(state => [
+      ...state.slice(0, index),
+      {...state[index], val: value},
+      ...state.slice(index+1)
+    ])
+  };
 
   return (
     <div className="wrapper">
+      {listOfFields.map((ele, index) => {
+        return (
+          <Field
+             key={ele.id}
+             lab={ele.label}
+             val={ele.val}
+             onChange={e => handleChange(e, index)}
+          />
+        )
+      })}
       <ContactInfo />
       <Education />
       <Experience />
@@ -16,6 +71,7 @@ function App() {
 }
 
 function ContactInfo() {
+
   return (
     <>
     <h2>Contact Information</h2>

@@ -1,0 +1,55 @@
+  const contactFields = () => ([
+    {
+        val: '',
+        label: 'First Name:',
+        inputType: 'text',
+        id: Math.floor(Math.random() * 1000000)
+      },
+      {
+        val: '',
+        label: 'Last Name:',
+        inputType: 'text',
+        id: Math.floor(Math.random() * 1000000)
+      },
+      {
+        val: '',
+        label: 'Email:',
+        inputType: 'text',
+        id: Math.floor(Math.random() * 1000000)
+      },
+      {
+        val: '',
+        label: 'Phone:',
+        inputType: 'text',
+        id: Math.floor(Math.random() * 1000000)
+      },
+      {
+        val: '',
+        label: 'Street Name and Number:',
+        inputType: 'text',
+        id: Math.floor(Math.random() * 1000000)
+      },
+      {
+        val: '',
+        label: 'State:',
+        inputType: 'text',
+        id: Math.floor(Math.random() * 1000000)
+      },
+      {
+        val: '',
+        label: 'Zip Code:',
+        inputType: 'text',
+        id: Math.floor(Math.random() * 1000000)
+      }
+  ]);
+
+  const edFields = ([
+    {
+        val: '',
+        label: 'Institution Name:',
+        inputType: 'text',
+        id: Math.floor(Math.random() * 1000000)
+    }
+  ]);
+
+  export default contactFields;

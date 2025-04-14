@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function Field({val, lab, onChange, onClick}) {
+function Field({val, lab, inputType, onChange, onClick}) {
     const [isEditing, setIsEditing] = useState(false);
 
     const handleClick = () => {
@@ -28,7 +28,7 @@ function Field({val, lab, onChange, onClick}) {
             autoFocus
             onChange={onChange}
             onKeyUpCapture={handleKeyPress}
-            type="text"
+            type={inputType}
             value={val}
         />
         <button onClick={handleClickDone}>
@@ -47,6 +47,10 @@ function Field({val, lab, onChange, onClick}) {
         )}
     </div>
     );
+}
+
+function dateField({val, lab, onChange, onClick}) {
+
 }
 
 export default Field;

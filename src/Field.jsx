@@ -12,6 +12,10 @@ function Field({val, lab, onChange, onClick}) {
         setIsEditing(false);
     }
     };
+
+    const handleClickDone = () => {
+        setIsEditing(false);
+    }
     
     return (
     <div className="Field">
@@ -19,16 +23,27 @@ function Field({val, lab, onChange, onClick}) {
             {lab}
         </label>
         {isEditing ? (
+        <>
         <input
             autoFocus
             onChange={onChange}
             onKeyUpCapture={handleKeyPress}
             type="text"
+            value={val}
         />
+        <button onClick={handleClickDone}>
+            Done
+        </button>
+        </>
         ) : (
+        <>
         <div className='emptybox' onClick={handleClick}>
         {val}
         </div>
+        <button onClick={handleClick}>
+            Edit
+        </button>
+        </>
         )}
     </div>
     );

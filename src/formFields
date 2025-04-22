@@ -3,43 +3,50 @@
         val: '',
         label: 'First Name:',
         inputType: 'text',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "half"
       },
       {
         val: '',
         label: 'Last Name:',
         inputType: 'text',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "half"
       },
       {
         val: '',
         label: 'Email:',
         inputType: 'text',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "half"
       },
       {
         val: '',
         label: 'Phone:',
         inputType: 'text',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "half"
       },
       {
         val: '',
         label: 'Street Name and Number:',
         inputType: 'text',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "full"
       },
       {
         val: '',
         label: 'State:',
         inputType: 'text',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "quarter"
       },
       {
         val: '',
         label: 'Zip Code:',
         inputType: 'text',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "quarter"
       }
   ]);
 
@@ -48,32 +55,76 @@
         val: '',
         label: 'Institution Name:',
         inputType: 'text',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "full"
     },
     {
         val: '',
         label: 'Degree:',
         inputType: 'text',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "full"
     },
     {
         val: '',
         label: 'Start Date:',
         inputType: 'date',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "quarter"
     },
     {
         val: '',
         label: 'End Date:',
         inputType: 'date',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "quarter"
     },
     {
         val: false,
         label: 'Presently Enrolled:',
         inputType: 'checkbox',
-        id: Math.floor(Math.random() * 1000000)
+        id: Math.floor(Math.random() * 1000000),
+        width: "quarter"
     }]
   ]);
 
-  export {contactFields, edFields};
+  const jobFields = () => ([
+    [{
+        val: '',
+        label: 'Organization Name:',
+        inputType: 'text',
+        id: Math.floor(Math.random() * 1000000),
+        width: "full"
+    },
+    {
+        val: '',
+        label: 'Position:',
+        inputType: 'text',
+        id: Math.floor(Math.random() * 1000000),
+        width: "full"
+    },
+    {
+        val: '',
+        label: 'Start Date:',
+        inputType: 'date',
+        id: Math.floor(Math.random() * 1000000),
+        width: "quarter"
+    },
+    {
+        val: '',
+        label: 'End Date:',
+        inputType: 'date',
+        id: Math.floor(Math.random() * 1000000),
+        width: "quarter"
+    },
+    {
+        val: false,
+        label: 'Presently Employed:',
+        inputType: 'checkbox',
+        id: Math.floor(Math.random() * 1000000),
+        width: "quarter"
+    }]
+  ]);
+
+
+  export {contactFields, edFields, jobFields};

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function Field({val, lab, inputType, onChange, onClick}) {
+function Field({val, lab, width, inputType, onChange, onClick}) {
     const isCheckbox = inputType === "checkbox"
     const [isEditing, setIsEditing] = useState(false);
 
@@ -23,7 +23,7 @@ function Field({val, lab, inputType, onChange, onClick}) {
     }
     
     return (
-    <div className="Field">
+    <div className={`${width} Field`}>
         <label>
             {lab}
         </label>
@@ -58,10 +58,6 @@ function Field({val, lab, inputType, onChange, onClick}) {
         )}
     </div>
     );
-}
-
-function dateField({val, lab, onChange, onClick}) {
-
 }
 
 export default Field;

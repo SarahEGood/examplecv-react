@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import './App.css'
 import Field from './Field.jsx';
-import { contactFields, edFields } from './formFields';
+import { contactFields, edFields, jobFields } from './formFields';
 
 function App() {
   const [listOfContactFields, setContactFields] = useState(contactFields);
   const [listOfEdFields, setEdFields] = useState(edFields);
+  const [listOfJobFields, setJobFields] = useState(jobFields);
 
   const handleChange = (e, index) => {
     const value = e.target.value;
@@ -34,33 +35,53 @@ function App() {
 
   return (
     <div className="wrapper">
+      <div className="full">
       <h1>Contact Info</h1>
+      </div>
       {listOfContactFields.map((ele, index) => {
         return (
           <Field
              key={ele.id}
              lab={ele.label}
              val={ele.val}
+             width={ele.width}
              inputType={ele.inputType}
              onChange={e => handleChange(e, index)}
           />
         )
       })}
-      <h1>Education</h1>
+      <div className="full">
+        <h1>Education</h1>
+      </div>
       {listOfEdFields.map((group, groupIndex) => {
         return group.map((ele, fieldIndex) => (
           <Field
             key={ele.id}
             lab={ele.label}
             val={ele.val}
+            width={ele.width}
             inputType={ele.inputType}
             onChange={e => handleEdChange(e, groupIndex, fieldIndex)}
           />
         ));
       })
       }
-      <Education />
-      <Experience />
+      <div className="full">
+        <h1>Work Experience</h1>
+      </div>
+      {listOfJobFields.map((group, groupIndex) => {
+        return group.map((ele, fieldIndex) => (
+          <Field
+            key={ele.id}
+            lab={ele.label}
+            val={ele.val}
+            width={ele.width}
+            inputType={ele.inputType}
+            onChange={e => handleJobChange(e, groupIndex, fieldIndex)}
+          />
+        ));
+      })
+      }
       <SubmitForEdit />
     </div>
   )
@@ -127,55 +148,12 @@ function StateSelect() {
   )
 }
 
-function Education() {
-  return (
-    <>
-    <h2>Education</h2>
-    <div className="edRow">
-      <label htmlFor="instName">Instutition Name:</label>
-      <input type='text' name="instName"/>
-      <label htmlFor="degree">Degree:</label>
-      <input type="text" name="degree" />
-      <label htmlFor="startEd">Start Date:</label>
-      <input type="date" name='startEd' />
-      <label htmlFor="endEd">End Date:</label>
-      <input type="date" name='endEd' />
-      <label htmlFor="isAttending">Present:</label>
-      <input type="checkbox" name="isAttending"/>
-    </div>
-    <button id="addEd">Add More</button>
-    </>
-  )
-}
-
-function Experience() {
-  return (
-    <>
-    <h2>Experience</h2>
-    <div className="expRow">
-      <label htmlFor="coName">Organization Name:</label>
-      <input type="text" name="coName" />
-      <label htmlFor="coPosition">Position:</label>
-      <input type="text" name="coPosition" />
-      <label htmlFor="jobdescription">Responsibilities:</label>
-      <textarea name="jobdescription" id="jobdescription"></textarea>
-      <label htmlFor="startCo">Start Date:</label>
-      <input type="date" name='startCo' />
-      <label htmlFor="endCo">End Date:</label>
-      <input type="date" name='endCo' />
-      <label htmlFor="isWorking">Present:</label>
-      <input type="checkbox" name="isWorking"/>
-    </div>
-    <button id="addCo">Add More</button>
-    </>
-  )
-}
 
 function SubmitForEdit() {
   return (
-    <>
+    <div className='full'>
     <input type="submit" id="mainSubmit" value="Submit"/>
-    </>
+    </div>
   )
 }
 

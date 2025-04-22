@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import './App.css'
 import Field from './Field.jsx';
-import contactFields from './formFields';
+import { contactFields, edFields } from './formFields';
 
 function App() {
   const [listOfContactFields, setContactFields] = useState(contactFields);
+  const [listOfEdFields, setEdFields] = useState(edFields);
 
   const handleChange = (e, index) => {
     const value = e.target.value;
@@ -15,45 +16,53 @@ function App() {
     ])
   };
 
+  const handleEdChange = (e, outerIndex, innerIndex) => {
+    const value = e.target.value;
+  
+    setEdFields(state => {
+      const updated = [...state]; // clone outer array
+      const updatedGroup = [...updated[outerIndex]]; // clone inner group
+      updatedGroup[innerIndex] = {
+        ...updatedGroup[innerIndex],
+        val: value
+      };
+  
+      updated[outerIndex] = updatedGroup; // replace the modified group
+      return updated;
+    });
+  };
+
   return (
     <div className="wrapper">
+      <h1>Contact Info</h1>
       {listOfContactFields.map((ele, index) => {
         return (
           <Field
              key={ele.id}
              lab={ele.label}
              val={ele.val}
+             inputType={ele.inputType}
              onChange={e => handleChange(e, index)}
           />
         )
       })}
-      <ContactInfo />
+      <h1>Education</h1>
+      {listOfEdFields.map((group, groupIndex) => {
+        return group.map((ele, fieldIndex) => (
+          <Field
+            key={ele.id}
+            lab={ele.label}
+            val={ele.val}
+            inputType={ele.inputType}
+            onChange={e => handleEdChange(e, groupIndex, fieldIndex)}
+          />
+        ));
+      })
+      }
       <Education />
       <Experience />
       <SubmitForEdit />
     </div>
-  )
-}
-
-function ContactInfo() {
-
-  return (
-    <>
-    <h2>Contact Information</h2>
-    <label htmlFor="fname">First Name:</label>
-    <input type="text" name="fname" />
-    <label htmlFor="lname">Last Name:</label>
-    <input  type="text" name="lname" />
-    <label htmlFor="email">Email:</label>
-    <input type="text" name="email" />
-    <label htmlFor="phone">Phone:</label>
-    <input type="text" name="phone" />
-    <label htmlFor="address">Address:</label>
-    <input type="text" name="address" />
-    <StateSelect />
-    <label htmlFor="zipcode">Zipcode:</label>
-    <input type="text" name='zipcode' />
-    </>
   )
 }
 

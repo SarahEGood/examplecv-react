@@ -1,10 +1,15 @@
 import React, {useState} from "react";
 
 function Field({val, lab, inputType, onChange, onClick}) {
+    const isCheckbox = inputType === "checkbox"
     const [isEditing, setIsEditing] = useState(false);
 
     const handleClick = () => {
-        setIsEditing(true);
+        if (isEditing) {
+            setIsEditing(false);
+        } else {
+            setIsEditing(true);
+        }
       };
     
     const handleKeyPress = e => {
@@ -22,7 +27,13 @@ function Field({val, lab, inputType, onChange, onClick}) {
         <label>
             {lab}
         </label>
-        {isEditing ? (
+        {isCheckbox ? (
+        <input
+        type="checkbox"
+        checked={val}
+        onChange={onChange}
+        />
+        ) :isEditing ? (
         <>
         <input
             autoFocus

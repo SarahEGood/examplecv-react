@@ -43,13 +43,37 @@
       }
   ]);
 
-  const edFields = ([
-    {
+  const edFields = () => ([
+    [{
         val: '',
         label: 'Institution Name:',
         inputType: 'text',
         id: Math.floor(Math.random() * 1000000)
-    }
+    },
+    {
+        val: '',
+        label: 'Degree:',
+        inputType: 'text',
+        id: Math.floor(Math.random() * 1000000)
+    },
+    {
+        val: '',
+        label: 'Start Date:',
+        inputType: 'date',
+        id: Math.floor(Math.random() * 1000000)
+    },
+    {
+        val: '',
+        label: 'End Date:',
+        inputType: 'date',
+        id: Math.floor(Math.random() * 1000000)
+    },
+    {
+        val: false,
+        label: 'Presently Enrolled:',
+        inputType: 'checkbox',
+        id: Math.floor(Math.random() * 1000000)
+    }]
   ]);
 
-  export default contactFields;
+  export {contactFields, edFields};
